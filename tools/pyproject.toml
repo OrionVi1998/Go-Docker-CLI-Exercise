@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "movies-cli"
+version = "0.1"
+dependencies = ["requests >= 2.32.5"]
+requires-python = ">= 3.12"
+
+[project.scripts]
+movies-cli = "cli.main:main"
+
+[project.optional-dependencies]
+test = [
+    "types-requests",
+    "pytest",
+    "black",
+    "mypy",
+    "pytest-repeat"
+]

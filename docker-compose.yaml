@@ -1,0 +1,5 @@
+services:
+  movies:
+    container_name: movies
+    build:
+      dockerfile: ./Dockerfile
