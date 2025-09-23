@@ -1,33 +1,3 @@
-Movie Server
-============
-
-This server serves movie lists via a REST API.
-
-Endpoints
-=========
-
-```
-The following endpoints are available:
-
-POST /api/auth
-	This endpoint allows users to authenticate themselves with the server. Accepts a JSON body with the following format:
-		{"username": "USERNAME", "password": "PASSWORD"}
-
-	On a success, the endpoint will return a JSON packet with the following format:
-		{"bearer": "TOKEN", "timeout": TOKEN_LIFETIME}
-
-GET /api/movies/$YEAR/$PAGE	
-	This endpoint requires the bearer token passed in the Authorization header. Will return a JSON list of upto 10 movies.
-```
-
-Usage
-=====
-
-```
-  -port uint
-    	port to listen on (default 8080)
-```
-
 CLI
 ============
 
@@ -45,13 +15,17 @@ Then the following command will run the included tests
 mypy ./tools/src && black --check ./tools && pytest ./tools/tests/test_count_movie.py
 ```
 
+Requirements
+=====
+To build and run the container through docker compose version 28.4.0 or newer of docker is needed.
+
 Running the container and CLI tool
 =====
 The CLI is installed within the container. To run the container and access its shell you can run the following command
 in a bash terminal:
 
 ```bash
-  docker-compose up -d && docker exec -it movies bash
+  docker compose up -d && docker exec -it movies bash
 ```
 
 From there the cli tool is accessible through `movies-cli`
