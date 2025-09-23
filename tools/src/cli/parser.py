@@ -13,6 +13,19 @@ def get_parser() -> argparse.ArgumentParser:
         help="Count the number of movies per year. Accepts values from 1800 to current year",
         required=False,
     )
+
+    parser.add_argument(
+        "--search",
+        type=str,
+        help="Optional search pattern"
+    )
+
+    parser.add_argument(
+        "--count-only",
+        type=bool,
+        help="Return the count of movies found"
+    )
+
     parser.add_argument(
         "-u",
         "--user",

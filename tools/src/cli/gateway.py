@@ -44,4 +44,7 @@ class ApiGateway:
             },
         )
 
+        if isinstance(response, dict):
+            raise Exception("No page found")
+
         return response.json()
