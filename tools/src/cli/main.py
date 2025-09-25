@@ -1,13 +1,7 @@
-if __package__:
-    from .parser import get_parser
-    from .commands.count_movie_years import count_movies_years
-    from .gateway import ApiGateway
-    from .commands.search_movies import search_movies
-else:
-    from cli.parser import get_parser
-    from cli.commands.count_movie_years import count_movies_years
-    from cli.gateway import ApiGateway
-    from tools.src.cli.commands.search_movies import search_movies
+from .parser import get_parser
+from .commands.count_movie_years import count_movies_years
+from .gateway import ApiGateway
+from .commands.search_movies import search_movies
 
 
 def main() -> None:
@@ -21,11 +15,9 @@ def main() -> None:
     )
 
     if args.years and not args.search:
-        res = count_movies_years(api, args.years)
-        print(res)
+        print(count_movies_years(api, args.years))
     elif args.years and args.search:
-        res = search_movies(api, args.years, args.count_only, args.search)
-        print(res)
+        print(search_movies(api, args.years, args.count_only, args.search))
     else:
         parser.print_help()
 

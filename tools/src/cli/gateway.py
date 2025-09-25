@@ -34,7 +34,7 @@ class ApiGateway:
             else:
                 raise Exception("Authentication Error")
 
-    def get_movie(self, year: int, page: int) -> dict[str, str] | list[int]:
+    def get_movie(self, year: int, page: int) -> dict[str, str] | list[str]:
         self.refresh_token()
         response: requests.Response = requests.get(
             self.api_url + f"/movies/{year}/{page}",

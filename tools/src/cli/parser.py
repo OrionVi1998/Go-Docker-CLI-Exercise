@@ -14,16 +14,10 @@ def get_parser() -> argparse.ArgumentParser:
         required=False,
     )
 
-    parser.add_argument(
-        "--search",
-        type=str,
-        help="Optional search pattern"
-    )
+    parser.add_argument("--search", type=str, help="Optional search pattern")
 
     parser.add_argument(
-        "--count-only",
-        type=bool,
-        help="Return the count of movies found"
+        "--count-only", type=bool, help="Return the count of movies found"
     )
 
     parser.add_argument(

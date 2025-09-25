@@ -4,7 +4,7 @@ from ..gateway import ApiGateway
 
 def search_movie(api: ApiGateway, year: int, search: str) -> list[str]:
     page_num = 1
-    found_movies = []
+    found_movies: list[str] = []
     search = search.lower()
 
     while True:
@@ -17,16 +17,18 @@ def search_movie(api: ApiGateway, year: int, search: str) -> list[str]:
             if search in movie_title.lower():
                 found_movies.append(movie_title)
 
-        page_num+=1
+        page_num += 1
 
 
-
-
-def search_movies(api: ApiGateway, years: list[int], count_only: bool, search: str) -> dict[int, list[str]] | dict[int, int]:
+def search_movies(
+    api: ApiGateway, years: list[int], count_only: bool, search: str
+) -> dict[int, list[str]] | dict[int, int]:
     """
     Counts the movies in each year and returns a dictionary with year, count key value pairs
     :param api:
     :param years:
+    :param count_only:
+    :param search:
     :return:
     """
     assert all(
